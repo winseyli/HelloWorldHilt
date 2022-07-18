@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             textViewFromInject.text = viewModel.text
+            textViewFromService.text = viewModel.getMessage()
         }
         val view = binding.root
         setContentView(view)
