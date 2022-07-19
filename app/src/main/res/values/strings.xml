@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HelloWorldHilt</string>
+    <string name="string_in_resource">This is a string from resource getting via context</string>
 </resources>

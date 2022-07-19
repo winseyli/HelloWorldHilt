@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     @TypeAClient
     @Inject lateinit var client: Client
 
+    @Inject lateinit var info: Info
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             textViewFromExternalLibrary.text = viewModel.getMessageFromExternalLibrary()
             textViewFromThirdModuleService.text = service.generateMessage()
             textViewFromThirdModuleClient.text = client.generateMessage()
+            textViewStringResFromContext.text = info.text
         }
         val view = binding.root
         setContentView(view)
