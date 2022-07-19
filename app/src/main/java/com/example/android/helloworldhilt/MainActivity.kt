@@ -15,12 +15,20 @@ class MainActivity : AppCompatActivity() {
 
     @Inject lateinit var viewModel: MainViewModel
 
+    @Inject lateinit var service: MessageService
+
+    // @TypeAClient at field injection.
+    @TypeAClient
+    @Inject lateinit var client: Client
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             textViewFromInject.text = viewModel.text
             textViewFromService.text = viewModel.getMessage()
             textViewFromExternalLibrary.text = viewModel.getMessageFromExternalLibrary()
+            textViewFromThirdModuleService.text = service.generateMessage()
+            textViewFromThirdModuleClient.text = client.generateMessage()
         }
         val view = binding.root
         setContentView(view)
