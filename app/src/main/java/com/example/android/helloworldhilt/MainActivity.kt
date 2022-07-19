@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             textViewFromInject.text = viewModel.text
             textViewFromService.text = viewModel.getMessage()
+            textViewFromExternalLibrary.text = viewModel.getMessageFromExternalLibrary()
         }
         val view = binding.root
         setContentView(view)
